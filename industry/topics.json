@@ -1,577 +1,536 @@
 {
-  "exportedAt": "2026-09-26",
+  "exportedAt": "2026-10-01",
   "groups": [
     {
       "key": "company",
-      "name": "公司与模型",
-      "blurb": "按厂商与模型系追踪：谁发了什么、又赢了哪一局"
+      "name": "机构与标的",
+      "blurb": "核心金融监管机构、头部金融机构与核心标的追踪"
     },
     {
       "key": "field",
-      "name": "技术方向",
-      "blurb": "按技术领域深挖：Agent、多模态、具身智能……"
+      "name": "业务与方向",
+      "blurb": "按金融细分业务深挖：货币政策、资本市场、量化科技……"
     },
     {
       "key": "genre",
       "name": "内容形态",
-      "blurb": "按内容类型浏览：论文、教程、观点、政策……"
+      "blurb": "按信息形态分类：监管公告、财报季、盘面异动、深度研报……"
     }
   ],
   "topics": [
     {
-      "slug": "openai",
-      "name": "OpenAI / ChatGPT",
+      "slug": "pboc",
+      "name": "中国人民银行",
       "group": "company",
-      "entityId": "openai",
+      "entityId": "pboc",
       "tags": [
-        "OpenAI",
-        "entity:openai"
+        "中国人民银行",
+        "entity:pboc"
       ],
-      "definition": "OpenAI 的全部动态：GPT 系列模型、ChatGPT 与 Sora 产品、公司战略与人事的持续追踪。",
+      "definition": "中国央行货币政策、公开市场操作、降准降息与宏观审慎监管动态追踪。",
       "related": [
-        "anthropic",
-        "google",
-        "model-releases"
+        "csrc",
+        "nfra",
+        "fed",
+        "monetary-policy",
+        "macro-data"
       ]
     },
     {
-      "slug": "anthropic",
-      "name": "Anthropic / Claude",
+      "slug": "csrc",
+      "name": "中国证监会",
       "group": "company",
-      "entityId": "anthropic",
+      "entityId": "csrc",
       "tags": [
-        "Anthropic",
-        "entity:anthropic"
+        "中国证监会",
+        "entity:csrc"
       ],
-      "definition": "Anthropic 的全部动态：Claude 系列模型、Claude Code、安全研究路线与公司进展的持续追踪。",
+      "definition": "中国证监会资本市场监管规章、IPO 与并购重组审核、市场秩序整肃动态追踪。",
       "related": [
-        "openai",
-        "google",
-        "safety"
+        "sse",
+        "szse",
+        "pboc",
+        "regulatory-bulletin",
+        "corporate-ma"
       ]
     },
     {
-      "slug": "google",
-      "name": "Google / Gemini",
+      "slug": "nfra",
+      "name": "国家金融监督管理总局",
       "group": "company",
-      "entityId": "google",
+      "entityId": "nfra",
       "tags": [
-        "Google",
-        "DeepMind",
-        "entity:google"
+        "国家金融监督管理总局",
+        "entity:nfra"
       ],
-      "definition": "Google 与 DeepMind 的 AI 动态：Gemini 系列、Veo 视频模型、研究成果与产品生态的持续追踪。",
+      "definition": "国家金融监管总局对银行业保险业审慎监管、机构准入与风险处置动态追踪。",
       "related": [
-        "openai",
-        "anthropic",
-        "multimodal"
+        "pboc",
+        "csrc",
+        "icbc",
+        "regulatory-bulletin"
       ]
     },
     {
-      "slug": "deepseek",
-      "name": "DeepSeek",
+      "slug": "fed",
+      "name": "美联储",
       "group": "company",
-      "entityId": "deepseek",
+      "entityId": "fed",
       "tags": [
-        "DeepSeek",
-        "entity:deepseek"
+        "美联储",
+        "entity:fed"
       ],
-      "definition": "DeepSeek（深度求索）的模型发布、开源权重与技术报告——开源大模型价格与性能双卷的风向标。",
+      "definition": "美联储 FOMC 议息决议、基准利率走势、美联储主席表态与全球美元流动性追踪。",
       "related": [
-        "qwen",
-        "open-source",
-        "model-releases"
+        "pboc",
+        "monetary-policy",
+        "capital-markets",
+        "macro-data"
       ]
     },
     {
-      "slug": "qwen",
-      "name": "千问 Qwen",
+      "slug": "sse",
+      "name": "上海证券交易所",
       "group": "company",
-      "entityId": "qwen",
+      "entityId": "sse",
       "tags": [
-        "entity:qwen"
+        "上交所",
+        "entity:sse"
       ],
-      "definition": "阿里千问 Qwen 系列的开源发布与迭代：从旗舰模型到端侧小模型的全谱系动态。",
+      "definition": "上交所主板与科创板股票上市审核、信息披露监管与交易制度运作动态追踪。",
       "related": [
-        "deepseek",
-        "kimi",
-        "open-source"
+        "szse",
+        "csrc",
+        "capital-markets",
+        "corporate-ma"
       ]
     },
     {
-      "slug": "kimi",
-      "name": "Kimi / 月之暗面",
+      "slug": "szse",
+      "name": "深圳证券交易所",
       "group": "company",
-      "entityId": "kimi",
+      "entityId": "szse",
       "tags": [
-        "entity:kimi"
+        "深交所",
+        "entity:szse"
       ],
-      "definition": "月之暗面 Kimi 系列模型与产品动态：K 系列开源模型、长上下文技术与产品演进的追踪。",
+      "definition": "深交所主板与创业板规则制度、交易行情、上市监管与上市公司自律动态追踪。",
       "related": [
-        "qwen",
-        "deepseek",
-        "minimax"
+        "sse",
+        "csrc",
+        "capital-markets",
+        "corporate-ma"
       ]
     },
     {
-      "slug": "minimax",
-      "name": "MiniMax",
+      "slug": "icbc",
+      "name": "工商银行",
       "group": "company",
-      "entityId": "minimax",
+      "entityId": "icbc",
       "tags": [
-        "entity:minimax"
+        "工商银行",
+        "entity:icbc"
       ],
-      "definition": "MiniMax 的模型与产品动态：M 系列大模型、语音与多模态能力、开源与商业化进展。",
+      "definition": "“宇宙行”中国工商银行信贷投放、净息差、资产质量与年度业绩动态追踪。",
       "related": [
-        "kimi",
-        "qwen",
-        "voice"
+        "ccb",
+        "boc",
+        "pboc",
+        "earnings-season"
       ]
     },
     {
-      "slug": "zhipu",
-      "name": "智谱 GLM",
+      "slug": "ccb",
+      "name": "建设银行",
       "group": "company",
-      "entityId": "zhipu",
+      "entityId": "ccb",
       "tags": [
-        "entity:zhipu"
+        "建设银行",
+        "entity:ccb"
       ],
-      "definition": "智谱的 GLM 系列模型动态：旗舰开源发布、代码与推理能力迭代、商业化与生态进展的追踪。",
+      "definition": "中国建设银行住房金融、公司信贷、风险管控与经营业绩全景追踪。",
       "related": [
-        "qwen",
-        "kimi",
-        "open-source"
+        "icbc",
+        "boc",
+        "pboc",
+        "earnings-season"
       ]
     },
     {
-      "slug": "xai",
-      "name": "xAI / Grok",
+      "slug": "boc",
+      "name": "中国银行",
       "group": "company",
-      "entityId": "xai",
+      "entityId": "boc",
       "tags": [
-        "xAI",
-        "entity:xai"
+        "中国银行",
+        "entity:boc"
       ],
-      "definition": "马斯克 xAI 与 Grok 系列的全部动态：模型迭代、算力扩张与 X 平台整合的持续追踪。",
+      "definition": "中国银行全球化清算、跨境金融、外汇交易与年度经营成果动态追踪。",
       "related": [
-        "openai",
-        "meta",
-        "industry"
+        "icbc",
+        "ccb",
+        "pboc",
+        "capital-markets"
       ]
     },
     {
-      "slug": "meta",
-      "name": "Meta / Llama",
+      "slug": "abc",
+      "name": "农业银行",
       "group": "company",
-      "entityId": "meta",
+      "entityId": "abc",
       "tags": [
-        "Meta",
-        "entity:meta"
+        "农业银行",
+        "entity:abc"
       ],
-      "definition": "Meta 的 AI 动态：Llama 开源模型系列、超级智能实验室与元宇宙之外的 AI 豪赌。",
+      "definition": "中国农业银行县域三农金融、网点下沉优势、信贷规模与经营指标追踪。",
       "related": [
-        "xai",
-        "open-source",
-        "industry"
+        "icbc",
+        "ccb",
+        "pboc",
+        "earnings-season"
       ]
     },
     {
-      "slug": "microsoft",
-      "name": "Microsoft / Copilot",
+      "slug": "cmb",
+      "name": "招商银行",
       "group": "company",
-      "entityId": "microsoft",
+      "entityId": "cmb",
       "tags": [
-        "Microsoft",
-        "entity:microsoft"
+        "招商银行",
+        "entity:cmb"
       ],
-      "definition": "微软的 AI 布局：Copilot 全家桶、Azure AI 基础设施与 OpenAI 合作关系的持续追踪。",
+      "definition": "“零售之王”招商银行财富管理、私人银行、资产配置与财报业绩动态追踪。",
       "related": [
-        "openai",
-        "coding",
-        "product-updates"
+        "icbc",
+        "asset-management",
+        "earnings-season"
       ]
     },
     {
-      "slug": "nvidia",
-      "name": "NVIDIA 英伟达",
+      "slug": "citic",
+      "name": "中信证券",
       "group": "company",
-      "entityId": "nvidia",
+      "entityId": "citic",
       "tags": [
-        "entity:nvidia"
+        "中信证券",
+        "entity:citic"
       ],
-      "definition": "英伟达的 AI 芯片与生态动态：GPU 新品、CUDA 生态、机器人平台与 AI 算力市场的风向。",
+      "definition": "行业龙头中信证券投行保荐、财富管理、机构交易与重磅研报动态追踪。",
       "related": [
-        "engineering",
-        "industry",
-        "embodied"
+        "cicc",
+        "htsc",
+        "csrc",
+        "capital-markets",
+        "asset-management"
       ]
     },
     {
-      "slug": "hugging-face",
-      "name": "Hugging Face",
+      "slug": "cicc",
+      "name": "中金公司",
       "group": "company",
-      "entityId": "hugging-face",
+      "entityId": "cicc",
       "tags": [
-        "Hugging Face",
-        "entity:hugging-face"
+        "中金公司",
+        "entity:cicc"
       ],
-      "definition": "Hugging Face 开源社区动态：热门模型与数据集、排行榜变化与开源生态的晴雨表。",
+      "definition": "中金公司跨境投行运作、海外 IPO 承销、宏观策略与市场深度研报追踪。",
       "related": [
-        "open-source",
-        "model-releases",
-        "data-training"
+        "citic",
+        "htsc",
+        "corporate-ma",
+        "macro-strategy"
       ]
     },
     {
-      "slug": "cursor",
-      "name": "Cursor",
+      "slug": "htsc",
+      "name": "华泰证券",
       "group": "company",
-      "entityId": "cursor",
+      "entityId": "htsc",
       "tags": [
-        "entity:cursor"
+        "华泰证券",
+        "entity:htsc"
       ],
-      "definition": "Cursor 编辑器的产品迭代与生态动态——AI 编码工具竞争中最受关注的玩家之一。",
+      "definition": "科技券商华泰证券金融科技赋能、机构业务、财富管理与经营表现追踪。",
       "related": [
-        "coding",
-        "agent",
-        "product-updates"
+        "citic",
+        "cicc",
+        "asset-management"
       ]
     },
     {
-      "slug": "openrouter",
-      "name": "OpenRouter",
+      "slug": "moutai",
+      "name": "贵州茅台",
       "group": "company",
-      "entityId": "openrouter",
+      "entityId": "moutai",
       "tags": [
-        "entity:openrouter"
+        "贵州茅台",
+        "entity:moutai"
       ],
-      "definition": "OpenRouter 模型路由平台动态：新模型上架、用量排行与开发者选型的真实市场信号。",
+      "definition": "A 股核心资产贵州茅台：产品批价、渠道改革、分红派息与核心财报数据追踪。",
       "related": [
-        "engineering",
-        "model-releases",
-        "open-source"
+        "capital-markets",
+        "earnings-season",
+        "corporate-ma"
       ]
     },
     {
-      "slug": "agent",
-      "name": "Agent 智能体",
+      "slug": "tencent",
+      "name": "腾讯",
+      "group": "company",
+      "entityId": "tencent",
+      "tags": [
+        "腾讯",
+        "entity:tencent"
+      ],
+      "definition": "腾讯控股金融科技与企业服务、股份回购、海外投资及季度核心业绩追踪。",
+      "related": [
+        "alibaba",
+        "fintech",
+        "earnings-season",
+        "corporate-ma"
+      ]
+    },
+    {
+      "slug": "alibaba",
+      "name": "阿里巴巴",
+      "group": "company",
+      "entityId": "alibaba",
+      "tags": [
+        "阿里巴巴",
+        "entity:alibaba"
+      ],
+      "definition": "阿里巴巴电商与云业务、蚂蚁金融协同、股票回购及财报数据动态追踪。",
+      "related": [
+        "tencent",
+        "fintech",
+        "earnings-season",
+        "corporate-ma"
+      ]
+    },
+    {
+      "slug": "catl",
+      "name": "宁德时代",
+      "group": "company",
+      "entityId": "catl",
+      "tags": [
+        "宁德时代",
+        "entity:catl"
+      ],
+      "definition": "新能源龙头宁德时代动力电池出货、海外建厂扩张、重大财报与市值波动追踪。",
+      "related": [
+        "capital-markets",
+        "earnings-season"
+      ]
+    },
+    {
+      "slug": "pingan",
+      "name": "中国平安",
+      "group": "company",
+      "entityId": "pingan",
+      "tags": [
+        "中国平安",
+        "entity:pingan"
+      ],
+      "definition": "综合金融巨头中国平安寿险改革成果、投资端收益率、分红与综合金融动态。",
+      "related": [
+        "nfra",
+        "asset-management",
+        "earnings-season"
+      ]
+    },
+    {
+      "slug": "goldman",
+      "name": "高盛",
+      "group": "company",
+      "entityId": "goldman",
+      "tags": [
+        "高盛",
+        "entity:goldman"
+      ],
+      "definition": "国际投行高盛全球资产配置研报、大宗商品观点及中国市场业务动态追踪。",
+      "related": [
+        "morgan-stanley",
+        "fed",
+        "macro-strategy"
+      ]
+    },
+    {
+      "slug": "morgan-stanley",
+      "name": "摩根士丹利",
+      "group": "company",
+      "entityId": "morgan-stanley",
+      "tags": [
+        "摩根士丹利",
+        "entity:morgan-stanley"
+      ],
+      "definition": "摩根士丹利全球宏观推演、中国股票评级调整与投行研究观点追踪。",
+      "related": [
+        "goldman",
+        "fed",
+        "macro-strategy"
+      ]
+    },
+    {
+      "slug": "monetary-policy",
+      "name": "货币政策与利率",
       "group": "field",
       "tags": [
-        "Agent"
+        "货币政策",
+        "利率决议",
+        "降准降息"
       ],
-      "definition": "让模型自主规划、调用工具、完成多步任务的技术方向——从 Claude Code、Manus 到各家 Agent 框架与评测基准的全部动态。",
+      "definition": "央行公开市场操作、降准降息、MLF/LPR 报价与全球基准利率调整的持续追踪。",
       "related": [
-        "mcp",
-        "coding",
-        "reasoning"
+        "pboc",
+        "fed",
+        "macro-data"
       ]
     },
     {
-      "slug": "coding",
-      "name": "AI 编码",
+      "slug": "capital-markets",
+      "name": "资本市场核心主线",
       "group": "field",
       "tags": [
-        "编码"
+        "A股",
+        "港股",
+        "美股",
+        "大宗商品"
       ],
-      "definition": "AI 写代码的一切：编码助手、Vibe Coding、代码模型评测与开发工作流变革。",
+      "definition": "全球资本市场核心脉动：A股主要指数、港股科技股、美股走势与大宗商品价格。",
       "related": [
-        "agent",
-        "cursor",
-        "tutorials"
+        "market-flash",
+        "macro-strategy",
+        "asset-management"
       ]
     },
     {
-      "slug": "reasoning",
-      "name": "推理能力",
+      "slug": "asset-management",
+      "name": "公募与私募基金",
       "group": "field",
       "tags": [
-        "推理"
+        "公募基金",
+        "私募基金",
+        "券商",
+        "量化投资"
       ],
-      "definition": "模型推理能力的进展：思维链、推理模型、数学与逻辑基准的突破与争议。",
+      "definition": "资产管理与财富管理前沿：公募基金规模与调仓、百亿私募策略、量化多头及券商资管生态。",
       "related": [
-        "papers",
-        "model-releases",
-        "agent"
+        "capital-markets",
+        "citic",
+        "cicc"
       ]
     },
     {
-      "slug": "multimodal",
-      "name": "多模态",
+      "slug": "fintech",
+      "name": "金融科技与数字货币",
       "group": "field",
       "tags": [
-        "多模态"
+        "数字货币",
+        "支付清算",
+        "金融AI",
+        "监管科技"
       ],
-      "definition": "文本之外的能力：视觉理解、图文混合、音视频输入输出的模型与产品进展。",
+      "definition": "金融科技创新应用：央行数字货币（e-CNY）、跨境支付清算、金融大模型及监管科技落地。",
       "related": [
-        "image-gen",
-        "video",
-        "voice"
+        "tencent",
+        "alibaba",
+        "asset-management"
       ]
     },
     {
-      "slug": "image-gen",
-      "name": "图像生成",
+      "slug": "macro-data",
+      "name": "宏观经济与周期",
       "group": "field",
       "tags": [
-        "图像生成"
+        "宏观数据",
+        "财政政策",
+        "宏观政策"
       ],
-      "definition": "AI 画图的最前线：文生图模型迭代、图像编辑能力与创作工具生态的全部动态。",
+      "definition": "核心宏观经济指标：GDP、CPI/PPI、PMI、社融信贷发布及财政逆周期调节政策。",
       "related": [
-        "video",
-        "multimodal",
-        "product-updates"
+        "monetary-policy",
+        "pboc",
+        "macro-strategy"
       ]
     },
     {
-      "slug": "video",
-      "name": "AI 视频",
+      "slug": "corporate-ma",
+      "name": "并购重组与资本运作",
       "group": "field",
       "tags": [
-        "视频"
+        "并购重组",
+        "IPO",
+        "分红回购"
       ],
-      "definition": "AI 视频生成与理解：文生视频模型、视频编辑工具与影视创作变革的追踪。",
+      "definition": "上市公司资本运作主线：重大资产重组、新股 IPO 发行、分红派息与回购注销。",
       "related": [
-        "image-gen",
-        "multimodal",
-        "voice"
+        "csrc",
+        "earnings-season",
+        "sse",
+        "szse"
       ]
     },
     {
-      "slug": "voice",
-      "name": "语音与音频",
-      "group": "field",
-      "tags": [
-        "语音"
-      ],
-      "definition": "AI 语音与音频的进展：语音合成、实时对话、音乐生成与音频理解的模型与产品。",
-      "related": [
-        "multimodal",
-        "video",
-        "product-updates"
-      ]
-    },
-    {
-      "slug": "embodied",
-      "name": "具身智能",
-      "group": "field",
-      "tags": [
-        "具身智能"
-      ],
-      "definition": "AI 走进物理世界：人形机器人、具身基础模型与真实环境操作能力的进展追踪。",
-      "related": [
-        "nvidia",
-        "multimodal",
-        "papers"
-      ]
-    },
-    {
-      "slug": "on-device",
-      "name": "端侧 AI",
-      "group": "field",
-      "tags": [
-        "端侧"
-      ],
-      "definition": "跑在手机、电脑与边缘设备上的 AI：小模型、本地推理与端侧芯片的进展。",
-      "related": [
-        "engineering",
-        "open-source",
-        "model-releases"
-      ]
-    },
-    {
-      "slug": "open-source",
-      "name": "开源生态",
-      "group": "field",
-      "tags": [
-        "开源生态",
-        "开源/仓库"
-      ],
-      "definition": "开源模型、框架与仓库动态：权重开放、社区项目爆火、开源与闭源的力量消长。",
-      "related": [
-        "model-releases",
-        "hugging-face",
-        "coding"
-      ]
-    },
-    {
-      "slug": "engineering",
-      "name": "部署工程",
-      "group": "field",
-      "tags": [
-        "部署/工程"
-      ],
-      "definition": "把模型跑起来的工程实践：推理优化、显存与成本、Serving 架构与基础设施选型。",
-      "related": [
-        "open-source",
-        "data-training",
-        "on-device"
-      ]
-    },
-    {
-      "slug": "data-training",
-      "name": "数据与训练",
-      "group": "field",
-      "tags": [
-        "数据/训练"
-      ],
-      "definition": "训练侧的门道：数据集构建、合成数据、预训练与后训练方法、算力与训练成本。",
-      "related": [
-        "papers",
-        "engineering",
-        "model-releases"
-      ]
-    },
-    {
-      "slug": "safety",
-      "name": "安全对齐",
-      "group": "field",
-      "tags": [
-        "安全/对齐"
-      ],
-      "definition": "AI 安全与对齐：越狱与防御、模型行为研究、安全评测与治理框架的进展。",
-      "related": [
-        "papers",
-        "policy",
-        "reasoning"
-      ]
-    },
-    {
-      "slug": "mcp",
-      "name": "MCP 与工具调用",
-      "group": "field",
-      "tags": [
-        "MCP/工具调用"
-      ],
-      "definition": "模型连接外部世界的协议与实践：MCP 生态、function calling、工具链集成的动态。",
-      "related": [
-        "agent",
-        "coding",
-        "open-source"
-      ]
-    },
-    {
-      "slug": "model-releases",
-      "name": "模型发布",
+      "slug": "regulatory-bulletin",
+      "name": "监管通报与规章发布",
       "group": "genre",
       "tags": [
-        "模型发布"
+        "监管动态",
+        "宏观政策"
       ],
-      "definition": "新模型的发布、开源与迭代：大模型厂商的旗舰更新、开源权重放出、性能与价格变化的第一时间记录。",
+      "definition": "金融监管规章、行政处罚通报、指导意见与自律规范的第一时间官方发布与解读。",
       "related": [
-        "product-updates",
-        "papers",
-        "open-source"
+        "pboc",
+        "csrc",
+        "nfra"
       ]
     },
     {
-      "slug": "product-updates",
-      "name": "产品更新",
+      "slug": "earnings-season",
+      "name": "财报季与核心业绩披露",
       "group": "genre",
       "tags": [
-        "产品更新"
+        "财报业绩",
+        "财报分析",
+        "业绩预告"
       ],
-      "definition": "AI 产品与应用的功能上新、改版与商业化动态——谁家的产品变强了、变贵了、能用了。",
+      "definition": "上市公司定期财务报告、业绩快报、盈利指引与核心财务指标异动深度拆解。",
       "related": [
-        "model-releases",
-        "industry",
-        "coding"
+        "corporate-ma",
+        "moutai",
+        "tencent",
+        "catl"
       ]
     },
     {
-      "slug": "papers",
-      "name": "论文研究",
+      "slug": "market-flash",
+      "name": "突发异动与盘面速递",
       "group": "genre",
       "tags": [
-        "论文/研究"
+        "市场行情",
+        "大盘异动"
       ],
-      "definition": "值得读的 AI 论文与研究成果：架构创新、训练方法、能力测量与理论进展的精选解读。",
+      "definition": "盘中指数急涨急跌、主要板块异动拉升、北向资金流向与交易情绪极端变化快报。",
       "related": [
-        "reasoning",
-        "safety",
-        "data-training"
+        "capital-markets",
+        "macro-strategy"
       ]
     },
     {
-      "slug": "benchmarks",
-      "name": "评测基准",
+      "slug": "macro-strategy",
+      "name": "宏观策略与深度研报",
       "group": "genre",
       "tags": [
-        "评测/基准"
+        "研报分析",
+        "宏观策略",
+        "行业透视"
       ],
-      "definition": "模型到底谁强：Benchmark 成绩、评测方法论争议与排行榜变化的持续记录。",
+      "definition": "主流券商与中外投行精选宏观策略、市场大势研判、行业周期透视与重磅深度报告。",
       "related": [
-        "model-releases",
-        "papers",
-        "reasoning"
-      ]
-    },
-    {
-      "slug": "tutorials",
-      "name": "教程实践",
-      "group": "genre",
-      "tags": [
-        "教程/实践"
-      ],
-      "definition": "拿来就能用的实操内容：提示词技巧、工作流搭建、工具用法与踩坑经验。",
-      "related": [
-        "coding",
-        "agent",
-        "product-updates"
-      ]
-    },
-    {
-      "slug": "opinions",
-      "name": "大佬观点",
-      "group": "genre",
-      "tags": [
-        "大佬观点"
-      ],
-      "definition": "行业关键人物在想什么：创始人访谈、研究者论战、投资人判断的观点集合。",
-      "related": [
-        "trends",
-        "industry"
-      ]
-    },
-    {
-      "slug": "trends",
-      "name": "现象与趋势",
-      "group": "genre",
-      "tags": [
-        "现象/趋势"
-      ],
-      "definition": "正在发生的行业级变化：使用习惯迁移、能力涌现、社会影响与市场格局的观察。",
-      "related": [
-        "opinions",
-        "industry",
-        "safety"
-      ]
-    },
-    {
-      "slug": "industry",
-      "name": "行业动态",
-      "group": "genre",
-      "tags": [
-        "行业动态"
-      ],
-      "definition": "AI 行业的商业脉搏：融资并购、人事变动、合作与竞争、政策与市场信号。",
-      "related": [
-        "trends",
-        "opinions",
-        "policy"
-      ]
-    },
-    {
-      "slug": "policy",
-      "name": "政策监管",
-      "group": "genre",
-      "tags": [
-        "政策/监管"
-      ],
-      "definition": "AI 相关政策法规与政府监管动态：立法进展、出口管制与全球治理框架的追踪。",
-      "related": [
-        "industry",
-        "safety",
-        "trends"
+        "capital-markets",
+        "cicc",
+        "goldman",
+        "morgan-stanley"
       ]
     }
   ]
