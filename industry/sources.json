@@ -2,78 +2,8 @@
   "$comment": "FinHOT 示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里增删改。字段说明见 docs/customize.md。",
   "sources": [
     {
-      "id": "rss-pboc-policy",
-      "name": "中国人民银行 货币政策与政务公开",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/pbc/goutongjiaoliu/113456/113469",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "pboc",
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "官方",
-        "宏观政策",
-        "货币政策"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-csrc-news",
-      "name": "中国证监会 要闻与政策法规",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/csrc/news",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "csrc",
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "官方",
-        "监管动态",
-        "市场行情"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nfra-news",
-      "name": "国家金融监督管理总局 监管要闻",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/nfra/news",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "nfra",
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "官方",
-        "监管动态",
-        "银行",
-        "保险"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
       "id": "rss-fed-monetary",
-      "name": "Federal Reserve Monetary Policy",
+      "name": "美联储货币政策委员会 (Federal Reserve FOMC)",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.federalreserve.gov/feeds/press_monetary.xml",
@@ -87,7 +17,6 @@
       "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
-        "官方",
         "货币政策",
         "利率决议"
       ],
@@ -96,7 +25,7 @@
     },
     {
       "id": "rss-fed-all",
-      "name": "Federal Reserve Press Releases",
+      "name": "美联储全量新闻发布 (Federal Reserve Press)",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
@@ -110,7 +39,6 @@
       "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
-        "官方",
         "美联储",
         "宏观政策"
       ],
@@ -118,123 +46,122 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-sse-news",
-      "name": "上海证券交易所 官方公告",
+      "id": "rss-ecb-press",
+      "name": "欧洲央行官方发布 (ECB Press Releases)",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://rsshub.app/sse/news",
+        "feedUrl": "https://www.ecb.europa.eu/rss/press.html",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
       "tier": "T1",
       "first_party": true,
-      "owner_entity_id": "sse",
+      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": [
-        "官方",
-        "A股",
-        "市场行情"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-szse-news",
-      "name": "深圳证券交易所 官方公告",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/szse/news",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "szse",
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "官方",
-        "A股",
-        "市场行情"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nbs-data",
-      "name": "国家统计局 宏观经济数据发布",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/stats/gov",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "宏观数据"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-cls-telegraph",
-      "name": "财联社 深度与要闻电报",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/cls/telegraph",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1_5",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 30,
-      "tags": [
-        "市场行情",
-        "大盘异动",
-        "A股"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-wallstreetcn-global",
-      "name": "华尔街见闻 全球快讯与早报",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/wallstreetcn/news/global",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1_5",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 30,
       "tags": [
         "宏观政策",
+        "货币政策",
+        "利率决议"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-boe-news",
+      "name": "英国央行政策动态 (Bank of England News)",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.bankofengland.co.uk/rss/news",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "first_party": true,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "宏观政策",
+        "货币政策"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-sec-news",
+      "name": "美国证券交易委员会 (U.S. SEC)",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.sec.gov/news/pressreleases.rss",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1",
+      "first_party": true,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "监管动态",
         "市场行情",
-        "美股",
-        "大宗商品"
+        "公司治理"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-rthk-finance",
+      "name": "香港电台 财经快讯与头条",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://rthk.hk/rthk/news/rss/c_expressnews_cfinance.xml",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "市场行情",
+        "宏观数据",
+        "港股"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-yahoo-hk-finance",
+      "name": "雅虎香港财经 核心快讯",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://hk.finance.yahoo.com/news/rssindex",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "市场行情",
+        "公司研报",
+        "港股"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
       "id": "rss-bloomberg-markets",
-      "name": "Bloomberg Markets News",
+      "name": "彭博市场 (Bloomberg Markets)",
       "kind": "rss",
       "config": {
         "feedUrl": "https://feeds.bloomberg.com/markets/news.rss",
@@ -256,11 +183,34 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-reuters-business",
-      "name": "Reuters Business & Finance",
+      "id": "rss-wsj-business",
+      "name": "华尔街日报商业与市场 (WSJ Business)",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reutersagency.com/feed/?best-topics=business-finance&post_type=best",
+        "feedUrl": "https://feeds.a.dj.com/rss/WSJcomUSBusiness.xml",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "财报业绩",
+        "市场行情",
+        "美股"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-cnbc-finance",
+      "name": "CNBC 金融核心资讯",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.cnbc.com/id/10000664/device/rss/rss.html",
         "_aihot": {
           "initialBackfillLimit": 8
         }
@@ -272,99 +222,146 @@
       "interval_minutes": 60,
       "tags": [
         "市场行情",
-        "宏观数据"
+        "银行",
+        "美股"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-caixin-finance",
-      "name": "财新网 金融要闻与深度调查",
+      "id": "rss-cnbc-economy",
+      "name": "CNBC 全球宏观与经济数据",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://rsshub.app/caixin/finance",
+        "feedUrl": "https://www.cnbc.com/id/20910258/device/rss/rss.html",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
-      "tier": "T2",
+      "tier": "T1_5",
       "first_party": false,
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 120,
+      "interval_minutes": 60,
       "tags": [
-        "机构动态",
-        "监管动态",
+        "宏观政策",
+        "宏观数据",
+        "降准降息"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-ft-world",
+      "name": "金融时报国际财经 (Financial Times)",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.ft.com/news-feed?format=rss",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "市场行情",
+        "债券",
+        "外汇"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-marketwatch-pulse",
+      "name": "MarketWatch 盘面实时脉搏",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://feeds.content.dowjones.io/public/rss/mw_marketpulse",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "市场行情",
+        "大盘异动",
+        "大宗商品"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-marketwatch-top",
+      "name": "MarketWatch 商业要闻",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
+      },
+      "tier": "T1_5",
+      "first_party": false,
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "市场行情",
+        "美股",
         "财报业绩"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-yicai-news",
-      "name": "第一财经 核心头条与快讯",
+      "id": "rss-yahoo-finance",
+      "name": "雅虎财经全球快讯 (Yahoo Finance)",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://rsshub.app/yicai/headline",
+        "feedUrl": "https://finance.yahoo.com/news/rssindex",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
-      "tier": "T2",
+      "tier": "T1_5",
       "first_party": false,
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
+        "市场行情",
         "财报业绩",
-        "行业动态",
-        "A股"
+        "美股"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-stcn-news",
-      "name": "证券时报 资本市场快讯",
+      "id": "rss-investing-stock",
+      "name": "英为财情股市要闻 (Investing.com)",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://rsshub.app/stcn/kuaixun",
+        "feedUrl": "https://www.investing.com/rss/stock.rss",
         "_aihot": {
           "initialBackfillLimit": 8
         }
       },
-      "tier": "T2",
+      "tier": "T1_5",
       "first_party": false,
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
-        "A股",
-        "IPO",
-        "并购重组"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-latepost",
-      "name": "晚点 LatePost 商业与资本",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/latepost",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "财报业绩",
-        "VC/PE",
-        "公司治理"
+        "市场行情",
+        "大盘异动",
+        "分红回购"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -394,7 +391,7 @@
     },
     {
       "id": "rss-openbb-releases",
-      "name": "OpenBB Financial Platform Releases",
+      "name": "OpenBB 开源量化金融终端发布",
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/OpenBB-finance/OpenBBTerminal/releases.atom",
@@ -415,11 +412,11 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-tldr-tech",
-      "name": "TLDR Tech & Finance Newsletter",
+      "id": "rss-kiplinger",
+      "name": "Kiplinger 投资策略与研报",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://tldr.tech/tech/feed.xml",
+        "feedUrl": "https://www.kiplinger.com/feeds/all",
         "_aihot": {
           "initialBackfillLimit": 8
         }
@@ -428,148 +425,11 @@
       "first_party": false,
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
+      "interval_minutes": 120,
       "tags": [
-        "金融科技",
-        "行业动态"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-icbc-announcements",
-      "name": "中国工商银行 投资者关系与公告",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/icbc/announcements",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "icbc",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "官方",
-        "银行",
-        "财报业绩"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-citic-announcements",
-      "name": "中信证券 官方公告与要闻",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/citic/news",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "citic",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "官方",
-        "券商",
-        "研报分析"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-cicc-announcements",
-      "name": "中金公司 官方公告与要闻",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/cicc/news",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "cicc",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "官方",
-        "券商",
-        "公司研报"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-pingan-announcements",
-      "name": "中国平安 投资者关系公告",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/pingan/announcements",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "pingan",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "官方",
-        "保险",
-        "财报业绩"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-moutai-announcements",
-      "name": "贵州茅台 官方公告与财报",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/moutai/announcements",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "moutai",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "官方",
-        "财报业绩",
-        "分红回购"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-catl-announcements",
-      "name": "宁德时代 投资者关系公告",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://rsshub.app/catl/announcements",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "catl",
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "官方",
-        "财报业绩",
-        "公司治理"
+        "宏观策略",
+        "行业透视",
+        "公募基金"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
