@@ -50,7 +50,7 @@ export const SELECTION = {
 | `samplingContext` | 评估切分与分层抽样 | `benchmarkSplit` 分开发集（`development`）和留出集（`holdout`）；`samplingStratum` 对应金融业务或噪声类型 |
 | `gold.decision` | 人工黄金判定 | `select` 该选，`reject` 不该选，`either` 两可边界样本（不计入决定性指标） |
 
-`industry/gold.example.jsonl` 内置了 16 条标准示例，覆盖 6 大金融业务维度、5 大金融典型噪声和 2 类边界样本。
+`industry/gold.example.jsonl` 内置了 18 条标准示例，覆盖 6 大金融业务维度、5 大金融典型噪声和 2 类边界样本。
 
 #### 建议的样本分层分布（Sampling Strata）
 - **宏观与监管（`macro-policy` / `institutions`）**：央行降准降息、流动性工具操作、重大涉案行政处罚。

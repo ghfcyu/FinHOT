@@ -84,7 +84,7 @@ function materialQuality(a: AnalyzeInputArticle): string {
 }
 
 /** The material as the prefilter and the content understanding read it. */
-export function renderContext(a: AnalyzeInputArticle, opts: { annotateQuoted?: boolean } = {}): string {
+export function renderContext(a: AnalyzeInputArticle, opts: { annotateQuoted?: boolean; maxBodyChars?: number } = {}): string {
   const lines: string[] = [];
   lines.push(`【来源】${a.source.name}（${a.source.kind}，tier=${a.source.tier || "未分级"}）`);
   if (a.source.tags?.length) lines.push(`【来源标签】${a.source.tags.join(", ")}`);
@@ -111,14 +111,16 @@ export function renderContext(a: AnalyzeInputArticle, opts: { annotateQuoted?: b
   }
   lines.push("");
   lines.push(opts.annotateQuoted && quoted ? "【正文（作者自己的内容）】" : "【正文】");
-  lines.push(capBody(a.xPost ? String(a.xPost.text ?? a.title) : (a.bodyText ?? a.excerpt ?? "(无正文)")));
+  const rawBody = a.xPost ? String(a.xPost.text ?? a.title) : (a.bodyText ?? a.excerpt ?? "(无正文)");
+  const capLimit = opts.maxBodyChars ?? MAX_BODY_CHARS;
+  lines.push(rawBody.length > capLimit ? rawBody.slice(0, capLimit) : rawBody);
   lines.push("");
   lines.push(`【材料质量】${materialQuality(a)}`);
   return lines.join("\n");
 }
 
-/** The prefilter's user message: the context as a JSON string (the prompt was tuned on this form). */
-export const prefilterUser = (a: AnalyzeInputArticle) => JSON.stringify(renderContext(a));
+/** The prefilter's user message: the context as a JSON string (capped at 2000 chars to avoid token inflation). */
+export const prefilterUser = (a: AnalyzeInputArticle) => JSON.stringify(renderContext(a, { maxBodyChars: 2_000 }));
 
 /** Nothing to judge beyond the title: the prefilter's BLOCK then means "wait for material". */
 export function missingEvidence(a: AnalyzeInputArticle): boolean {

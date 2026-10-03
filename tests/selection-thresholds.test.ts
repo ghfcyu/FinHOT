@@ -59,10 +59,10 @@ test("scoring threshold mathematics enforce strict financial quality boundaries"
 test("all benchmark samples in gold.example.jsonl map to valid thresholds and pass tier validation", () => {
   const content = readFileSync(new URL("../industry/gold.example.jsonl", import.meta.url), "utf8");
   const lines = content.trim().split("\n");
-  assert.equal(lines.length, 16, "exactly 16 golden cases in financial benchmark");
+  assert.equal(lines.length, 18, "exactly 18 golden cases in unbiased financial benchmark");
 
-  for (const line of lines) {
-    const row = JSON.parse(line);
+  const rows = lines.map((l) => JSON.parse(l));
+  for (const row of rows) {
     const tier = row.sourceFacts.sourceTier;
     assert.ok(tier, `case ${row.caseId} must define sourceTier`);
     const threshold = tierThreshold(tier);
@@ -75,4 +75,10 @@ test("all benchmark samples in gold.example.jsonl map to valid thresholds and pa
     // Verify gold decision
     assert.ok(["select", "reject", "either"].includes(row.gold.decision));
   }
+
+  // Anti-bias checks: ensure both T1 and T2 have positive and negative cases (no tier-decision confounding)
+  assert.ok(rows.some((r) => r.sourceFacts.sourceTier === "T1" && r.gold.decision === "select"), "T1 has positive policy/regulatory cases");
+  assert.ok(rows.some((r) => r.sourceFacts.sourceTier === "T1" && r.gold.decision === "reject"), "T1 has negative administrative noise cases");
+  assert.ok(rows.some((r) => r.sourceFacts.sourceTier === "T2" && r.gold.decision === "select"), "T2 has positive in-depth research cases");
+  assert.ok(rows.some((r) => r.sourceFacts.sourceTier === "T2" && r.gold.decision === "reject"), "T2 has negative disguised promotion cases");
 });

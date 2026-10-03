@@ -80,6 +80,9 @@ export function scoreInputTime(at: Date): string {
   return `${SCORE_TIME.format(at).replace(" ", "T")}${ms ? `.${String(ms).padStart(3, "0")}` : ""}+08:00`;
 }
 
+/** Capped to 8,000 characters to prevent token explosion on long articles while retaining core financial facts. */
+const SCORE_MAX_BODY_CHARS = 8_000;
+
 /**
  * The score input: no source facts (the prompt forbids guessing them), the publication time, the
  * original title (items are scored before any Chinese copy exists) and the whole body.
@@ -98,7 +101,7 @@ export function buildScoreInput(a: AnalyzeInputArticle): string {
     "请按系统规则评估以下单篇材料所代表的事件。只输出 attentionScore。",
     `【发布时间（北京时间）】\n${at ? scoreInputTime(at) : ""}`,
     `【标题】\n${a.title.trim()}`,
-    `【完整正文】\n${body.length > MAX_BODY_CHARS ? body.slice(0, MAX_BODY_CHARS) : body}`,
+    `【完整正文】\n${body.length > SCORE_MAX_BODY_CHARS ? body.slice(0, SCORE_MAX_BODY_CHARS) : body}`,
   ].join("\n\n");
 }
 
@@ -267,7 +270,7 @@ async function runUnderstand(a: AnalyzeInputArticle, opts: StepOpts): Promise<An
     checkAnalysisRunning();
     return chatJson({
       model, purpose: "understand_article", subject: subjectOf(a), promptVersion: PROMPT_VERSIONS.understand, system: UNDERSTAND_SYSTEM,
-      user: image ? [{ type: "text", text }, image] : text, schema: UnderstandSchema, temperature: 0.2, maxTokens: 16_384,
+      user: image ? [{ type: "text", text }, image] : text, schema: UnderstandSchema, temperature: 0.2, maxTokens: 2_048,
       timeoutMs: 180_000, attemptTag: tagged(opts.attemptTag, "understand"),
     });
   };
@@ -351,7 +354,7 @@ export async function runAnalysis(a: AnalyzeInputArticle, opts: StepOpts & { sta
   try {
     const scores = threshold === null ? null : await runScores(a, threshold, opts);
     const sum = scores && !scores.refused && scores.values.length === SCORE_CALLS ? scores.values.reduce((total, v) => total + v, 0) : null;
-    const near = sum !== null && (sum >= scores!.threshold * SCORE_CALLS || sum > UNDERSTAND_FLOOR * SCORE_CALLS);
+    const near = sum !== null && (sum >= scores!.threshold * SCORE_CALLS || sum >= UNDERSTAND_FLOOR * SCORE_CALLS);
     const writing = (near ? await runUnderstand(a, opts) : null) ?? (await runSummarize(a, opts));
     const s = await structure;
     if ("error" in s) throw s.error;
