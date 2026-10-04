@@ -16,8 +16,8 @@ export const REPORT_VERSION = promptVersion("report-daily-lead", "report-period"
 
 const SECTION_OF: Record<string, string> = Object.fromEntries(CATEGORIES.map((c) => [c.key, c.section]));
 const SECTION_ORDER = [...new Set(CATEGORIES.map((c) => c.section))];
-/** Where an item without a category goes. */
-const DEFAULT_SECTION = SECTION_OF.industry ?? SECTION_ORDER.at(-1)!;
+/** Where an item without a category goes. Defaults to macro-policy section. */
+const DEFAULT_SECTION = SECTION_OF["macro-policy"] ?? SECTION_ORDER[0] ?? SECTION_ORDER.at(-1)!;
 
 export interface ReportEntry {
   itemId: string;
@@ -165,7 +165,7 @@ export async function composeDaily(date: string, reason = "scheduled"): Promise<
     metrics: {
       totalEvents: ordered.length,
       sourcesCount: new Set(ordered.map((e) => e.sourceId)).size,
-      modelsReleased: perSection.get("模型发布/更新")?.length ?? 0,
+      macroPolicyEvents: perSection.get("宏观与监管政策")?.length ?? 0,
       firstPartyEvents: ordered.filter((e) => e.firstParty).length,
     },
     windowStart: start.toISOString(),
