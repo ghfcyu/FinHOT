@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { SITE, withSubject } from "@aihot/industry/site";
 import { CATEGORIES } from "@aihot/industry/taxonomy";
-import { headline, KIND_LABEL } from "../apps/web/app/features/report/format.ts";
+import { headline, KIND_LABEL, MOTTO, metricItems } from "../apps/web/app/features/report/format.ts";
 
 test("FinHOT daily report metadata and headlines use financial subject", () => {
   assert.equal(SITE.subject, "金融");
@@ -15,6 +15,12 @@ test("FinHOT daily report metadata and headlines use financial subject", () => {
   assert.equal(headline("daily", "2026-10-04", 5), "这一天的 5 件 金融大事");
   assert.equal(headline("weekly", "2026-W40", 12), "本周的 12 件 金融大事");
   assert.equal(headline("monthly", "2026-10", 25), "10 月的 25 件 金融大事");
+
+  // Verify MOTTO uses dynamic financial subject and purges AI
+  assert.equal(MOTTO.daily, "金融 · 每日要闻");
+  assert.equal(MOTTO.weekly, "金融 · 每周综述");
+  assert.equal(MOTTO.monthly, "金融 · 每月盘点");
+  assert.equal(Object.values(MOTTO).some((v) => v.includes("人工智能")), false);
 });
 
 test("all financial categories map to valid non-empty report sections", () => {
@@ -65,4 +71,9 @@ test("daily report JSON schema strictly adheres to financial reporting contract"
   assert.ok(sampleDaily.lead.leadParagraph.includes("不构成任何投资建议"));
   assert.ok(sampleDaily.metrics.macroPolicyEvents >= 1);
   assert.equal((sampleDaily.metrics as any).modelsReleased, undefined, "Obsolete AI metric must be absent");
+
+  // Verify metricItems correctly renders macroPolicyEvents into the masthead metrics contract
+  const renderedMetrics = metricItems(sampleDaily.metrics);
+  assert.ok(renderedMetrics.some((m) => m.unit === "件宏观政策" && m.value === 1));
+  assert.equal(renderedMetrics.some((m) => m.unit === "个新模型"), false);
 });
