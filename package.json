@@ -16,6 +16,7 @@
     "dev:worker": "npm run dev -w @aihot/worker",
     "dev:web": "npm run dev -w @aihot/web",
     "typecheck": "tsc -p packages/contracts && tsc -p packages/backend && tsc -p apps/api && tsc -p apps/worker && tsc -p tests && npm run typecheck -w @aihot/web",
+    "preview:api": "node --env-file-if-exists=.env scripts/preview-server.ts",
     "test": "node --test --test-concurrency=1 --test-timeout=120000 \"tests/*.test.ts\""
   },
   "devDependencies": {
