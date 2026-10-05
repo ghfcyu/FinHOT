@@ -372,10 +372,10 @@ const ITEMS: FinancialItem[] = [
     story: { publicId: "story-a-share-rally", title: "A股交投持续突破万亿 核心指数震荡走强与估值修复" },
     x: null,
     facts: [
-      { subject: "中金公司", predicate: "研判", object: "全球流动性拐点已确立", impact: "看好中国核心权益资产估值修复" },
+      { subject: "中金公司", predicate: "研判", object: "全球流动性拐点基本确立", impact: "中国核心权益资产估值风险溢价处于历史低位" },
     ],
     extractedFacts: [
-      { subject: "中金策略团队", action: "发布四季度大类资产配置研报", outcome: "建议超配科技成长与高股息资产" },
+      { subject: "中金策略团队", action: "发布四季度大类资产配置研报", outcome: "分析科技成长与高股息板块基本面特征" },
     ],
     attribution: { name: "中金公司研报", url: "https://www.cicc.com" },
   },
@@ -385,7 +385,7 @@ const ITEMS: FinancialItem[] = [
     title: "中信证券：增量政策持续见效 重点关注化债推进与内需消费链条传导",
     originalTitle: "中信证券政策与经济追踪：化债举措切实落地，微观流动性逐步通畅",
     summary: "中信证券研究指出，地方政府隐性债务置换工作有序推开，直接改善地方财政流动性与企业应收账款周转，建筑工程与现代服务业微观现金流有望率先受益企稳。",
-    reason: "透彻剖析宏观财政举措在微观产业链条中的传导逻辑，研判具备实操指导性。",
+    reason: "透彻剖析宏观财政举措在微观产业链条中的传导逻辑，事实与论证逻辑严谨。",
     source: { id: "citic", name: "中信证券研究", kind: "rss", firstParty: false, iconUrl: null },
     links: { aihot: "/items/item-fin-012", original: "https://www.citics.com" },
     publishedAt: "2026-10-05T01:00:00.000Z",

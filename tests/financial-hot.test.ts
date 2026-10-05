@@ -25,6 +25,7 @@ const bannedTerms = [
   "AI 导读",
   "OpenAI 博客",
   "AI HOT",
+  "openai-blog",
 ];
 
 test("FinHOT routes strictly purged obsolete AI terms and placeholders", () => {
@@ -56,10 +57,15 @@ test("hot.tsx meta description and subtitle accurately use financial subject", (
     "hot.tsx meta description must include financial subject interpolation"
   );
 
-  // Subtitle assertion
+  // Subtitle assertion - verified pure JSX expression without literal ${}
   assert.ok(
-    content.includes("过去 {hot.windowHours} 小时，${SITE.subject}领域最受关注的 {hot.entries.length || 10} 件事"),
-    "hot.tsx subtitle must include financial subject interpolation"
+    content.includes("过去 {hot.windowHours} 小时，{SITE.subject}领域最受关注的 {hot.entries.length || 10} 件事"),
+    "hot.tsx subtitle must include valid JSX expression without dollar literal"
+  );
+  assert.equal(
+    content.includes("小时，${SITE.subject}领域最受关注"),
+    false,
+    "hot.tsx subtitle must not contain literal ${SITE.subject} in JSX tag"
   );
 });
 
@@ -84,8 +90,19 @@ test("feedback and admin route placeholders updated to financial domain and FinH
   const sourceNewFile = path.resolve(rootDir, "apps/web/app/routes/admin/source-new.tsx");
   const sourceNewContent = fs.readFileSync(sourceNewFile, "utf-8");
   assert.ok(sourceNewContent.includes('placeholder="例如：中国人民银行官网"'));
+  assert.ok(sourceNewContent.includes('placeholder="pboc-gov"'));
+  assert.equal(sourceNewContent.includes('placeholder="openai-blog"'), false);
 
   const adminFeedbackFile = path.resolve(rootDir, "apps/web/app/routes/admin/feedback.tsx");
   const adminFeedbackContent = fs.readFileSync(adminFeedbackFile, "utf-8");
   assert.ok(adminFeedbackContent.includes("签名统一 FinHOT。"));
 });
+
+test("preview-server.ts strictly adheres to financial compliance and avoids investment advice", () => {
+  const previewFile = path.resolve(rootDir, "scripts/preview-server.ts");
+  const previewContent = fs.readFileSync(previewFile, "utf-8");
+
+  assert.equal(previewContent.includes("建议超配"), false, "Must not contain advisory 建议超配");
+  assert.equal(previewContent.includes("看好中国核心权益资产估值修复"), false, "Must not contain subjective 看好");
+});
+

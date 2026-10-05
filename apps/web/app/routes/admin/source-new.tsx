@@ -49,7 +49,7 @@ export default function NewSource() {
         <Card title="信源定义">
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="ID" hint="小写字母、数字和连字符，创建后不可改">
-              <Input value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value.toLowerCase() })} placeholder="openai-blog" />
+              <Input value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value.toLowerCase() })} placeholder="pboc-gov" />
             </Field>
             <Field label="名称">
               <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="例如：中国人民银行官网" />
